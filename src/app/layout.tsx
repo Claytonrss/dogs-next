@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { KumaRegistry } from "@kuma-ui/next-plugin/registry";
-import "./globals.css";
 import FaviconChanger from "@/components/FaviconChanger";
+import "./globals.css";
+import { type_second } from "@/functions/fonts";
 
 export const metadata: Metadata = {
   title: "Dogs Next",
@@ -18,7 +19,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" id="favicon-link" />
       </head>
-      <body>
+      <body className={type_second.variable}>
         <KumaRegistry>{children}</KumaRegistry>
         <FaviconChanger />
       </body>

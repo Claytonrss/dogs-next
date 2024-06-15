@@ -8,7 +8,6 @@ const FaviconChanger = () => {
       const isDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-      console.log("🚀 ~ updateFavicon ~ isDarkMode:", isDarkMode)
       const faviconLink = document.getElementById(
         "favicon-link"
       ) as HTMLLinkElement;
