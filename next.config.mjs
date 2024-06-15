@@ -1,4 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import { withKumaUI } from "@kuma-ui/next-plugin";
 
-export default nextConfig;
+const nextConfig = { reactStrictMode: true, images: {
+    remotePatterns: [
+        {
+            protocol: 'https',
+            hostname: 'dogsapi.origamid.dev',
+        }
+    ]
+} };
+
+export default withKumaUI(nextConfig, {
+  outputDir: "./.kuma",
+  wasm: true,
+});
