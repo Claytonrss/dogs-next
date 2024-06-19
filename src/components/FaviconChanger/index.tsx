@@ -6,10 +6,10 @@ const FaviconChanger = () => {
   useEffect(() => {
     const updateFavicon = () => {
       const isDarkMode = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
       const faviconLink = document.getElementById(
-        "favicon-link"
+        "favicon-link",
       ) as HTMLLinkElement;
       if (faviconLink) {
         faviconLink.href = isDarkMode

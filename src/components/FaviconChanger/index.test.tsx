@@ -27,11 +27,11 @@ function createMockMatchMedia(initialMatches: boolean) {
     dispatchEvent: vi.fn(),
     simulateChange(newMatches: boolean) {
       matches = newMatches;
-      Object.defineProperty(this, 'matches', {
+      Object.defineProperty(this, "matches", {
         get: () => matches,
         configurable: true,
       });
-      listeners.forEach(listener => {
+      listeners.forEach((listener) => {
         listener({ matches: newMatches } as MediaQueryListEvent);
       });
     },
@@ -66,13 +66,14 @@ describe("Componente FaviconChanger", () => {
 
     const linkElement = document.createElement("link");
     linkElement.id = "favicon-link";
-    linkElement.href = "other-favicon.ico"; 
+    linkElement.href = "other-favicon.ico";
     document.head.appendChild(linkElement);
 
     render(<FaviconChanger />);
 
     mockMediaQueryList.simulateChange(false);
-    const expectedUrl = new URL("/favicon-light.ico", window.location.href).href;
+    const expectedUrl = new URL("/favicon-light.ico", window.location.href)
+      .href;
     expect(linkElement.href).toBe(expectedUrl);
   });
 
@@ -91,7 +92,7 @@ describe("Componente FaviconChanger", () => {
 
     expect(mockMediaQueryList.removeEventListener).toHaveBeenCalledWith(
       "change",
-      expect.any(Function)
+      expect.any(Function),
     );
   });
 });

@@ -1,4 +1,3 @@
-
 import React, {
   ComponentType,
   ForwardRefExoticComponent,
@@ -23,7 +22,7 @@ vi.mock("@kuma-ui/core", () => {
     ): StyledComponentProps => {
       // Cria um componente estilizado com `React.forwardRef` e associa as propriedades recebidas
       const StyledComponent = React.forwardRef((props, ref) =>
-        React.createElement(component, { ...props, ref })
+        React.createElement(component, { ...props, ref }),
       ) as StyledComponentProps;
 
       // Adiciona um nome de exibição (displayName) ao componente para facilitar a depuração
