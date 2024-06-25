@@ -1,6 +1,6 @@
-import { css, styled } from "@kuma-ui/core";
+import { css, styled } from '@kuma-ui/core';
 
-export const HeaderContainer = styled("header")`
+export const HeaderContainer = styled('header')`
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
@@ -9,7 +9,7 @@ export const HeaderContainer = styled("header")`
   top: 0;
 `;
 
-export const NavHeader = styled("nav")`
+export const NavHeader = styled('nav')`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,11 +26,11 @@ export const loginNavHeaderStyles = css`
   align-items: center;
 
   &::after {
-    content: "";
+    content: '';
     display: inline-block;
     width: 14px;
     height: 17px;
-    background: url("/assets/usuario.svg") no-repeat center center;
+    background: url('/assets/usuario.svg') no-repeat center center;
     margin-left: 0.5rem;
     position: relative;
     top: -1px;

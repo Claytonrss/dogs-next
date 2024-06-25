@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   HeaderContainer,
   loginNavHeaderStyles,
   logoNavHeaderStyles,
   NavHeader,
-} from "./styles";
+} from './styles';
 
 const Header = () => {
   const user = true;

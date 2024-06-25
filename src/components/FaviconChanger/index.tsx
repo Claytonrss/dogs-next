@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const FaviconChanger = () => {
   useEffect(() => {
     const updateFavicon = () => {
       const isDarkMode = window.matchMedia(
-        "(prefers-color-scheme: dark)",
+        '(prefers-color-scheme: dark)',
       ).matches;
       const faviconLink = document.getElementById(
-        "favicon-link",
+        'favicon-link',
       ) as HTMLLinkElement;
       if (faviconLink) {
         faviconLink.href = isDarkMode
-          ? "/favicon-dark.ico"
-          : "/favicon-light.ico";
+          ? '/favicon-dark.ico'
+          : '/favicon-light.ico';
       }
     };
 
     updateFavicon();
 
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", updateFavicon);
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', updateFavicon);
 
     return () => {
-      mediaQuery.removeEventListener("change", updateFavicon);
+      mediaQuery.removeEventListener('change', updateFavicon);
     };
   }, []);
 
