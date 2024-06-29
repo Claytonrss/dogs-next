@@ -23,7 +23,11 @@ const Header = () => {
           />
         </Link>
         {user ? (
-          <Link className={loginNavHeaderStyles} href="/conta">
+          <Link
+            className={loginNavHeaderStyles}
+            href="/conta"
+            data-testid="link-to-account"
+          >
             Dogs
           </Link>
         ) : (

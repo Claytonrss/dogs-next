@@ -37,3 +37,5 @@ next-env.d.ts
 
 # kuma-ui
 .kuma
+# Million Lint
+.million

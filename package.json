@@ -21,9 +21,6 @@
       "eslint --fix",
       "git add"
     ],
-    "**/*.test.{js,jsx,mjs,ts,tsx}": [
-      "vitest run --coverage --passWithNoTests"
-    ],
     "**/*.{json,css,md}": [
       "prettier --write",
       "git add"
@@ -37,6 +34,7 @@
   },
   "dependencies": {
     "@kuma-ui/core": "^1.5.7",
+    "@million/lint": "^1.0.0-rc.76",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"
@@ -62,6 +60,7 @@
     "husky": "^8.0.0",
     "jsdom": "^24.1.0",
     "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
     "typescript": "^5",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
