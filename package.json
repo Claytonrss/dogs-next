@@ -21,9 +21,6 @@
       "eslint --fix",
       "git add"
     ],
-    "**/*.test.{js,jsx,mjs,ts,tsx}": [
-      "vitest run --coverage --passWithNoTests"
-    ],
     "**/*.{json,css,md}": [
       "prettier --write",
       "git add"
