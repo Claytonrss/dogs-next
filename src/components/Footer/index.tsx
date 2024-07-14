@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FooterContainer } from './styles';
 
-const Footer = () => {
+export function Footer() {
   return (
     <FooterContainer>
       <Image
@@ -13,6 +13,4 @@ const Footer = () => {
       <p>Dogs. Alguns direitos reservados.</p>
     </FooterContainer>
   );
-};
-
-export default Footer;
+}

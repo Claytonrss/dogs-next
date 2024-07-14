@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import Footer from '.';
+import { Footer } from '.';
 
-describe('Componente Footer', () => {
+describe('<Footer />', () => {
   it('renderiza o componente Footer', () => {
     const { container } = render(<Footer />);
     expect(container).toBeInTheDocument();

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import photosGet from './photos-get';
-import { PhotoService } from '@/services/PhotoService';
-import { Photo } from '@/@types/photo';
+import type { Photo } from '@/@types/photo';
+import { PhotoService } from '@/services/photo-service';
 
 global.fetch = vi.fn();
 
@@ -19,7 +19,7 @@ const mockPhotos: Photo[] = [
   },
 ];
 
-describe('photosGet', () => {
+describe('photos-get', () => {
   it('deve buscar fotos com sucesso', async () => {
     const mockService = new PhotoService('');
     vi.spyOn(mockService, 'getPhotos').mockResolvedValueOnce(mockPhotos);

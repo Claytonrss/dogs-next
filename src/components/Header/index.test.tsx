@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import Header from '.';
+import { Header } from '.';
 
-describe('Componente Header', () => {
+describe('<Header />', () => {
   it('renderiza corretamente', () => {
     const { container } = render(<Header />);
     expect(container).toBeInTheDocument();

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import FeedPhotos from './';
-import { Photo } from '@/@types/photo';
+import type { Photo } from '@/@types/photo';
 import { describe, it, expect } from 'vitest';
+import { FeedPhotos } from '.';
 
 const mockPhotos: Photo[] = [
   {
@@ -28,11 +28,11 @@ const mockPhotos: Photo[] = [
   },
 ];
 
-describe('FeedPhotos', () => {
+describe('<FeedPhotos />', () => {
   it('deve renderizar todas as fotos passadas como props', () => {
     render(<FeedPhotos photos={mockPhotos} />);
 
-    mockPhotos.forEach((photo) => {
+    for (const photo of mockPhotos) {
       const imgElement = screen.getByAltText(photo.title);
       expect(imgElement).toBeInTheDocument();
 
@@ -40,35 +40,36 @@ describe('FeedPhotos', () => {
         name: new RegExp(photo.acessos),
       });
       expect(linkElement).toHaveAttribute('href', `/foto/${photo.id}`);
-    });
+    }
   });
 
   it('deve renderizar corretamente os acessos das fotos', () => {
     render(<FeedPhotos photos={mockPhotos} />);
 
-    mockPhotos.forEach((photo) => {
+    for (const photo of mockPhotos) {
       const spanElement = screen.getByText(photo.acessos);
       expect(spanElement).toBeInTheDocument();
-    });
+    }
   });
 
   it('deve renderizar as imagens com o alt correto', () => {
     render(<FeedPhotos photos={mockPhotos} />);
 
-    mockPhotos.forEach((photo) => {
+    for (const photo of mockPhotos) {
       const imgElement = screen.getByAltText(photo.title);
       expect(imgElement).toBeInTheDocument();
-    });
+      expect(imgElement).toHaveAttribute('alt', photo.title);
+    }
   });
 
   it('deve renderizar as imagens com o src contendo a URL correta', () => {
     render(<FeedPhotos photos={mockPhotos} />);
 
-    mockPhotos.forEach((photo) => {
+    for (const photo of mockPhotos) {
       const imgElement = screen.getByAltText(photo.title);
       expect(imgElement).toBeInTheDocument();
       const encodedSrc = encodeURIComponent(photo.src);
       expect(imgElement.getAttribute('src')).toContain(encodedSrc);
-    });
+    }
   });
 });

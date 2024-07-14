@@ -7,7 +7,7 @@ import {
   NavHeader,
 } from './styles';
 
-const Header = () => {
+export function Header() {
   const user = true;
 
   return (
@@ -38,6 +38,4 @@ const Header = () => {
       </NavHeader>
     </HeaderContainer>
   );
-};
-
-export default Header;
+}

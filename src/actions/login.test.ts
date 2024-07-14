@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, Mock } from 'vitest';
+import { describe, it, expect, vi, type Mock } from 'vitest';
 import login from './login';
 
 global.fetch = vi.fn();
@@ -66,7 +66,7 @@ describe('login', () => {
 
     expect(result).toEqual({
       ok: false,
-      error: 'Falha ao realizar login',
+      error: 'Senha ou usuário inválidos',
       data: null,
     });
   });
