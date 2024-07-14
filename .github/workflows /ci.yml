@@ -18,16 +18,34 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install dependencies
         run: npm install
-      - name: Run Jest
-        run: npm test:coverage
+
+      - name: Run tests with coverage
+        run: |
+          echo "Running tests with coverage"
+          npm run test:coverage
+          echo "Completed tests with coverage"
+
       - name: Lint
-        run: npm run lint
+        run: |
+          echo "Running linter"
+          npm run lint
+          echo "Completed linting"
+
       - name: Build
-        run: npm run build
+        run: |
+          echo "Building project"
+          npm run build
+          echo "Build completed"
+
       - name: Check vulnerabilities
-        run: npm audit --audit-level=high
+        run: |
+          echo "Checking for vulnerabilities"
+          npm audit --audit-level=high
+          echo "Completed vulnerability check"
+
       - name: Dependabot
         uses: dependabot/dependabot-core@v2
 
