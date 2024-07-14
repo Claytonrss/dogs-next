@@ -1,7 +1,7 @@
 'use server';
 
-import { Photo } from '@/@types/photo';
-import { PhotoService } from '@/services/PhotoService';
+import type { Photo } from '@/@types/photo';
+import { PhotoService } from '@/services/photo-service';
 import { API_URL } from '@/utils/constants';
 
 const defaultPhotoService = new PhotoService(

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import FaviconChanger from '.';
+import { FaviconChanger } from '.';
 
 function createMockMatchMedia(initialMatches: boolean) {
   let matches = initialMatches;
@@ -31,16 +31,16 @@ function createMockMatchMedia(initialMatches: boolean) {
         get: () => matches,
         configurable: true,
       });
-      listeners.forEach((listener) => {
+      for (const listener of Array.from(listeners)) {
         listener({ matches: newMatches } as MediaQueryListEvent);
-      });
+      }
     },
   };
 
   return mediaQueryList;
 }
 
-describe('Componente FaviconChanger', () => {
+describe('<FaviconChanger />', () => {
   beforeEach(() => {
     document.head.innerHTML = '';
   });

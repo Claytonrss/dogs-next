@@ -1,4 +1,4 @@
-import { Photo, IPhotoService } from '@/@types/photo';
+import type { Photo, IPhotoService } from '@/@types/photo';
 
 export class PhotoService implements IPhotoService {
   private apiUrl: string;

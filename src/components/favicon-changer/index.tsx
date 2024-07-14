@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-const FaviconChanger = () => {
+export function FaviconChanger() {
   useEffect(() => {
     const updateFavicon = () => {
       const isDarkMode = window.matchMedia(
@@ -29,6 +29,4 @@ const FaviconChanger = () => {
   }, []);
 
   return null;
-};
-
-export default FaviconChanger;
+}

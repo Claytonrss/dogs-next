@@ -1,5 +1,6 @@
 'use server';
 
+import { apiError } from '@/functions/api-error';
 import { API_URL } from '@/utils/constants';
 import { cookies } from 'next/headers';
 
@@ -23,7 +24,9 @@ export default async function login(
       throw new Error('Todos os campos devem ser preenchidos');
     }
 
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const loginURL = `${API_URL}/jwt-auth/v1/token`;
+
+    const response = await fetch(loginURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +38,7 @@ export default async function login(
     });
 
     if (!response.ok) {
-      throw new Error('Falha ao realizar login');
+      throw new Error('Senha ou usuário inválidos');
     }
 
     const { token = '' } = await response.json();
@@ -54,17 +57,6 @@ export default async function login(
       },
     };
   } catch (error) {
-    if (error instanceof Error) {
-      return {
-        ok: false,
-        error: error.message,
-        data: null,
-      };
-    }
-    return {
-      ok: false,
-      error: 'Erro desconhecido',
-      data: null,
-    };
+    return apiError(error);
   }
 }

@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Photo } from '@/@types/photo';
 import { FeedPhotosUl } from './styles';
-import { Photo } from '@/@types/photo';
 
-export default function FeedPhotos({ photos }: { photos: Photo[] }) {
+export function FeedPhotos({ photos }: { photos: Photo[] }) {
   return (
     <FeedPhotosUl className="animeLeft">
       {photos.map((photo, index) => {

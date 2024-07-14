@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import type ReactDom from 'react-dom';
 import { useFormState as originalUseFormState } from 'react-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import ReactDom from 'react-dom';
-import LoginForm from './';
+import { LoginForm } from '.';
 
 vi.mock('react-dom', async (importOriginal) => {
   const actual = (await importOriginal()) as typeof ReactDom;
@@ -16,7 +16,7 @@ vi.mock('react-dom', async (importOriginal) => {
   };
 });
 
-describe('LoginForm', () => {
+describe('<LoginForm />', () => {
   let useFormStateMock: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
@@ -35,12 +35,12 @@ describe('LoginForm', () => {
 
     const form = screen.getByTestId('login-form');
     const button = screen.getByRole('button');
-    const inputUser = screen.getByPlaceholderText('usuario');
-    const inputPassword = screen.getByPlaceholderText('senha');
+    const userLabel = screen.getByText('Usuário');
+    const passwordLabel = screen.getByText('Senha');
 
     expect(form).toBeInTheDocument();
-    expect(inputUser).toBeInTheDocument();
-    expect(inputPassword).toBeInTheDocument();
+    expect(userLabel).toBeInTheDocument();
+    expect(passwordLabel).toBeInTheDocument();
     expect(button).toBeInTheDocument();
   });
 

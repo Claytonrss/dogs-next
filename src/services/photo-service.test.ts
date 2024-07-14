@@ -1,6 +1,7 @@
-import { describe, it, expect, vi, Mock } from 'vitest';
-import { PhotoService } from './PhotoService';
-import { Photo } from '@/@types/photo';
+import { describe, it, expect, vi, type Mock } from 'vitest';
+import { PhotoService } from './photo-service';
+import type { Photo } from '@/@types/photo';
+import { API_URL } from '@/utils/constants';
 
 global.fetch = vi.fn();
 
@@ -22,9 +23,8 @@ const mockPhotos: Photo[] = [
   },
 ];
 
-describe('PhotoService', () => {
-  const apiUrl = 'https://example.com/api/photos';
-  const photoService = new PhotoService(apiUrl);
+describe('photo-service', () => {
+  const photoService = new PhotoService(API_URL);
 
   it('deve buscar fotos com sucesso', async () => {
     (fetch as Mock).mockResolvedValueOnce(

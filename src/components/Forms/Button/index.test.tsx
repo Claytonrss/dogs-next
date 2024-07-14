@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { useFormStatus as originalUseFormStatus } from 'react-dom';
-import ButtonForm from './';
+import { ButtonForm } from '.';
 
 vi.mock('react-dom', () => ({
   useFormStatus: vi.fn(),
 }));
 
-describe('Componente ButtonForm', () => {
+describe('<ButtonForm />', () => {
   let useFormStatusMock: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
