@@ -1,4 +1,4 @@
-import { expect, test, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { type_second } from './fonts';
 
 vi.mock('next/font/google', () => ({
@@ -7,10 +7,12 @@ vi.mock('next/font/google', () => ({
   })),
 }));
 
-test('type_second font configuration', () => {
-  expect(type_second).toBeDefined();
-  expect(type_second).toHaveProperty('subsets', ['latin']);
-  expect(type_second).toHaveProperty('weight', '700');
-  expect(type_second).toHaveProperty('variable', '--type-second-spectral');
-  expect(type_second).toHaveProperty('display', 'swap');
+describe('fonts', () => {
+  it('Deve carregar a fonte corretamente', () => {
+    expect(type_second).toBeDefined();
+    expect(type_second).toHaveProperty('subsets', ['latin']);
+    expect(type_second).toHaveProperty('weight', '700');
+    expect(type_second).toHaveProperty('variable', '--type-second-spectral');
+    expect(type_second).toHaveProperty('display', 'swap');
+  });
 });
